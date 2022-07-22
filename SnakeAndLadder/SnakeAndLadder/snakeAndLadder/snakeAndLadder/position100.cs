@@ -19,7 +19,7 @@ namespace SnakeAndLadderGame
             Console.WriteLine("Player Position is : " + Player_Position);
 
             Random random = new Random();
-            while (Player_Position != 100)
+            while (Player_Position != 100 || Player_Position > 100)
             {
                 int DieRoll = random.Next(1, 7);
                 Console.WriteLine("Rolling the Die : " + DieRoll);
@@ -39,8 +39,11 @@ namespace SnakeAndLadderGame
                             Player_Position = 0;
                         break;
                 }
+                if (Player_Position > 100)
+                    Player_Position = Player_Position - DieRoll;
                 Console.WriteLine("After Rollint Die Palyer Position is : " + Player_Position);
             }
+            Console.WriteLine("Player is Reaching to Exact Winning Position 100");
         }
     }
 }
