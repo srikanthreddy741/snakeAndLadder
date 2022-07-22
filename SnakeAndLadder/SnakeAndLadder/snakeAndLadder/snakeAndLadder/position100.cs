@@ -15,13 +15,15 @@ namespace SnakeAndLadderGame
         {
             int Player = 1;
             int Player_Position = 0;
+            int DiceCount = 0;
 
             Console.WriteLine("Player Position is : " + Player_Position);
 
             Random random = new Random();
-            while (Player_Position != 100 || Player_Position > 100)
+            while (Player_Position != 100 || Player_Position < 100)
             {
                 int DieRoll = random.Next(1, 7);
+                DiceCount++;
                 Console.WriteLine("Rolling the Die : " + DieRoll);
 
                 int check = random.Next(1, 4);
@@ -40,10 +42,11 @@ namespace SnakeAndLadderGame
                         break;
                 }
                 if (Player_Position > 100)
-                    Player_Position = Player_Position - DieRoll;
+                    Player_Position = Player_Position - DieRoll; ;
                 Console.WriteLine("After Rollint Die Palyer Position is : " + Player_Position);
             }
             Console.WriteLine("Player is Reaching to Exact Winning Position 100");
+            Console.WriteLine("{0} times Roll the Die ", DiceCount);
         }
     }
 }
